@@ -1,7 +1,7 @@
 """
 Internal HTTP client wrapper.
 
-Uses ``httpx`` with sane timeouts, Content-Type enforcement, and
+Uses ``httpx`` with sane timeouts, Bearer token authentication, and
 centralised error mapping from Xpresspay HTTP status codes to SDK exceptions.
 """
 
@@ -21,10 +21,6 @@ from .exceptions import (
 )
 
 _DEFAULT_TIMEOUT = httpx.Timeout(30.0, connect=10.0)
-_HEADERS = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
 
 
 def _raise_for_response(response: httpx.Response) -> None:
@@ -37,7 +33,12 @@ def _raise_for_response(response: httpx.Response) -> None:
     except Exception:
         body = {}
 
-    msg = body.get("message") or response.text or "Unknown error"
+    msg = (
+        body.get("responseMessage")
+        or body.get("message")
+        or response.text
+        or "Unknown error"
+    )
     err_type = body.get("error", "")
 
     if response.status_code == 400:
@@ -57,12 +58,17 @@ class HttpClient:
 
     def __init__(
         self,
+        public_key: str,
         timeout: httpx.Timeout = _DEFAULT_TIMEOUT,
         *,
         verify_ssl: bool = True,
     ) -> None:
         self._client = httpx.Client(
-            headers=_HEADERS,
+            headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": f"Bearer {public_key}",
+            },
             timeout=timeout,
             verify=verify_ssl,
             follow_redirects=True,
@@ -71,17 +77,6 @@ class HttpClient:
     def post(self, url: str, payload: dict[str, Any]) -> dict[str, Any]:
         try:
             response = self._client.post(url, json=payload)
-        except httpx.TimeoutException as exc:
-            raise NetworkError(f"Request timed out: {exc}") from exc
-        except httpx.NetworkError as exc:
-            raise NetworkError(f"Network error: {exc}") from exc
-
-        _raise_for_response(response)
-        return response.json()  # type: ignore[no-any-return]
-
-    def get(self, url: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
-        try:
-            response = self._client.get(url, params=params)
         except httpx.TimeoutException as exc:
             raise NetworkError(f"Request timed out: {exc}") from exc
         except httpx.NetworkError as exc:

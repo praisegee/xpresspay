@@ -11,14 +11,13 @@ from xpresspay import XpressPay
 ```python
 XpressPay(
     public_key: str,
-    secret_key: str,
     *,
     sandbox: bool = True,
     timeout: float = 30.0,
 )
 ```
 
-Raises `ValueError` if either key has the wrong prefix.
+Raises `ValueError` if `public_key` does not start with `XPPUBK-`.
 
 ### Properties
 
@@ -31,9 +30,7 @@ Raises `ValueError` if either key has the wrong prefix.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
-| `cards` | `CardResource` | Card payment operations |
-| `accounts` | `AccountResource` | Bank account payment operations |
-| `banks` | `BanksResource` | Bank listing |
+| `payments` | `PaymentResource` | Initialize and verify transactions |
 
 ### Methods
 
@@ -44,139 +41,66 @@ Raises `ValueError` if either key has the wrong prefix.
 
 ---
 
-## CardResource
+## PaymentResource
 
-Access via `client.cards`.
-
-| Method | Arguments | Returns |
-|--------|-----------|---------|
-| `initiate(request)` | `CardPaymentRequest` | `PaymentResponse` |
-| `authenticate_pin(request)` | `CardPinAuthRequest` | `PaymentResponse` |
-| `authenticate_avs(request)` | `CardAvsAuthRequest` | `PaymentResponse` |
-| `validate_otp(request)` | `OtpValidationRequest` | `PaymentResponse` |
-| `query(request)` | `PaymentQueryRequest` | `PaymentResponse` |
-
----
-
-## AccountResource
-
-Access via `client.accounts`.
+Access via `client.payments`.
 
 | Method | Arguments | Returns |
 |--------|-----------|---------|
-| `initiate(request)` | `AccountPaymentRequest` | `PaymentResponse` |
-| `validate_otp(request)` | `OtpValidationRequest` | `PaymentResponse` |
-| `query(request)` | `PaymentQueryRequest` | `PaymentResponse` |
-
----
-
-## BanksResource
-
-Access via `client.banks`.
-
-| Method | Arguments | Returns |
-|--------|-----------|---------|
-| `list()` | — | `list[Bank]` |
-
-### Bank
-
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `name` | `str` | Bank display name |
-| `code` | `str` | Bank code for payment requests |
-| `raw` | `dict` | Full API response entry |
+| `initialize(request)` | `InitializeRequest` | `InitializeResponse` |
+| `verify(request)` | `VerifyRequest` | `VerifyResponse` |
 
 ---
 
 ## Request models
 
-All models are plain Python dataclasses. Import them from `xpresspay`:
-
 ```python
-from xpresspay import (
-    CardPaymentRequest,
-    CardPinAuthRequest,
-    CardAvsAuthRequest,
-    AccountPaymentRequest,
-    OtpValidationRequest,
-    PaymentQueryRequest,
-)
+from xpresspay import InitializeRequest, VerifyRequest
 ```
 
-### CardPaymentRequest
+### InitializeRequest
 
-See full field table in [Card payments — Step 1](card-payments.md#cardpaymentrequest-fields).
+See full field table in [Payments — InitializeRequest fields](card-payments.md#initializerequest-fields).
 
-Method: `to_encrypt_dict() -> dict` — returns the dict that gets encrypted and sent as the `request` field.
+Method: `to_dict() -> dict`
 
-### CardPinAuthRequest
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `public_key` | `str` | `XPPUBK-…` |
-| `transaction_id` | `str` | Your order ID |
-| `pin` | `str` | 4-digit card PIN |
-
-### CardAvsAuthRequest
+### VerifyRequest
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `public_key` | `str` | `XPPUBK-…` |
-| `transaction_id` | `str` | Your order ID |
-| `billing_zip` | `str \| None` | |
-| `billing_city` | `str \| None` | |
-| `billing_address` | `str \| None` | |
-| `billing_state` | `str \| None` | |
-| `billing_country` | `str \| None` | |
+| `transaction_id` | `str` | The transaction ID used during initialization |
 
-### AccountPaymentRequest
-
-See full field table in [Account payments — Step 1](account-payments.md#accountpaymentrequest-fields).
-
-Method: `to_encrypt_dict() -> dict`
-
-### OtpValidationRequest
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `public_key` | `str` | `XPPUBK-…` |
-| `transaction_id` | `str` | Your order ID |
-| `otp` | `str` | OTP from customer |
-| `payment_type` | `str` | `"CARD"` or `"ACCOUNT"` |
-
-### PaymentQueryRequest
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `public_key` | `str` | `XPPUBK-…` |
-| `transaction_id` | `str` | Your order ID |
-| `payment_type` | `str` | `"CARD"`, `"ACCOUNT"`, `"QR"`, `"USSD"`, `"WALLET"` |
+Method: `to_dict() -> dict`
 
 ---
 
-## PaymentResponse
+## Response models
 
-Returned by every resource method.
-
-```python
-from xpresspay import PaymentResponse
-```
+### InitializeResponse
 
 | Attribute / Property | Type | Description |
 |----------------------|------|-------------|
-| `status` | `str` | Top-level status string from API |
-| `message` | `str` | Top-level message string from API |
+| `is_successful` | `bool` | `responseCode == "00"` |
+| `payment_url` | `str \| None` | Hosted payment page URL |
+| `reference` | `str \| None` | Xpresspay transaction reference |
+| `response_code` | `str` | Raw API response code |
+| `response_message` | `str` | Human-readable API message |
 | `raw` | `dict` | Complete JSON response |
-| `is_successful` | `bool` | `paymentResponseCode == "000"` |
-| `requires_validation` | `bool` | `authenticatePaymentResponseCode == "02"` |
-| `suggested_authentication` | `str \| None` | `"PIN"`, `"AVS_VBVSECURECODE"`, or `None` |
-| `auth_url` | `str \| None` | 3DSecure iframe URL |
-| `transaction_reference` | `str \| None` | Xpresspay's transaction reference |
-| `unique_key` | `str \| None` | Xpresspay's unique payment key |
-| `amount` | `str \| None` | Original amount |
-| `charged_amount` | `str \| None` | Amount actually charged |
-| `payment_type` | `str \| None` | `"CARD"` or `"ACCOUNT"` |
-| `validation_instruction` | `str \| None` | Human-readable next-step hint |
+
+### VerifyResponse
+
+| Attribute / Property | Type | Description |
+|----------------------|------|-------------|
+| `is_successful` | `bool` | `True` when the transaction was settled |
+| `amount` | `str \| None` | Transaction amount |
+| `currency` | `str \| None` | Currency code |
+| `status` | `str \| None` | Status description |
+| `payment_type` | `str \| None` | Payment method used |
+| `gateway_response` | `str \| None` | Raw gateway message |
+| `transaction_id` | `str \| None` | Your original transaction ID |
+| `response_code` | `str` | Raw API response code |
+| `response_message` | `str` | Human-readable API message |
+| `raw` | `dict` | Complete JSON response |
 
 ---
 
@@ -189,7 +113,6 @@ from xpresspay import (
     ValidationError,
     NotFoundError,
     ProcessingError,
-    EncryptionError,
     NetworkError,
 )
 ```
@@ -203,5 +126,5 @@ See the full [Exceptions](exceptions.md) page for details on each class.
 ```python
 import xpresspay
 
-print(xpresspay.__version__)  # "0.1.0"
+print(xpresspay.__version__)  # "0.2.0"
 ```

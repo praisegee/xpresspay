@@ -4,16 +4,15 @@
 
 ---
 
-xpresspay lets you accept payments in Nigerian applications with a clean, typed Python API. It handles card payments (local PIN, international AVS/3DSecure), direct bank-account debits, OTP validation, payment verification, and bank listing — with no manual HTTP or encryption code on your side.
+xpresspay lets you accept payments in Nigerian applications with a clean, typed Python API. It handles payment initialization and server-side verification — with no manual HTTP or encryption code on your side.
 
 ## Features
 
-- **Card payments** — full lifecycle: initiate → PIN or AVS auth → OTP → verify
-- **Account payments** — bank account direct debit with OTP confirmation
-- **3DES-24 encryption** — your secret key never leaves your server
+- **Hosted payment page** — initialize a transaction and redirect the customer to Xpresspay's secure payment page
+- **Server-side verification** — confirm payment status before fulfilling orders
 - **Typed models** — dataclasses for every request and response field
 - **Typed exceptions** — granular error classes mapped to HTTP status codes
-- **httpx-powered** — modern async-ready HTTP client with configurable timeouts
+- **httpx-powered** — modern HTTP client with configurable timeouts
 - **Sandbox support** — toggle between sandbox and live with a single flag
 
 ## Install
@@ -28,46 +27,47 @@ pip install xpresspay
 
 ```python
 import os
-from xpresspay import XpressPay, CardPaymentRequest, PaymentQueryRequest
+from xpresspay import XpressPay, InitializeRequest, VerifyRequest
 
 client = XpressPay(
     public_key=os.environ["XPRESSPAY_PUBLIC_KEY"],
-    secret_key=os.environ["XPRESSPAY_SECRET_KEY"],
     sandbox=True,
 )
 
-response = client.cards.initiate(
-    CardPaymentRequest(
-        public_key=client.public_key,
-        card_number="5438898014560229",
-        cvv="789",
-        expiry_month="09",
-        expiry_year="25",
-        amount="5000",
+# Initialize — get a payment URL to redirect your customer to
+response = client.payments.initialize(
+    InitializeRequest(
+        amount="1000.00",
         email="customer@example.com",
         transaction_id="ORDER-001",
+        callback_url="https://yourdomain.com/payment/callback",
     )
 )
 
-print(response.suggested_authentication)  # "PIN" or "AVS_VBVSECURECODE"
+if response.is_successful:
+    print(response.payment_url)   # redirect customer here
+
+# Verify — confirm payment server-side before fulfilling the order
+result = client.payments.verify(
+    VerifyRequest(transaction_id="ORDER-001")
+)
+
+print(result.is_successful)   # True / False
+print(result.amount)          # "1000.00"
 ```
 
 ## Requirements
 
 - Python **3.9+**
 - [`httpx`](https://www.python-httpx.org/) ≥ 0.27
-- [`pycryptodome`](https://pycryptodome.readthedocs.io/) ≥ 3.20
 
-Both are installed automatically with the package.
+Installed automatically with the package.
 
 ## Security model
 
-| Key | Used for | Leaves your server? |
-|-----|----------|---------------------|
-| `XPPUBK-…` | Identifying your account in API requests | Yes (safe) |
-| `XPSECK-…` | Deriving the local 3DES encryption key | **Never** |
-
-Your secret key is used **only** to encrypt the payload locally before it is sent. Only the ciphertext travels over HTTPS to Xpresspay's servers.
+| Key | Used for | Transmitted? |
+|-----|----------|--------------|
+| `XPPUBK-…` | Bearer token in every API request | Yes (safe) |
 
 !!! warning "Never commit your keys"
     Store credentials in environment variables or a secrets manager. Never hardcode them in source code.

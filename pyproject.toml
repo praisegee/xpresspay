@@ -1,7 +1,7 @@
 [project]
 name = "xpresspay"
-version = "0.1.0"
-description = "Python SDK for integrating the Xpress payment gateway (xpresspayonline.com)"
+version = "0.2.0"
+description = "Python SDK for integrating the Xpress payment gateway (xpresspayments.com)"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
@@ -24,7 +24,6 @@ classifiers = [
 ]
 dependencies = [
     "httpx>=0.27.0",
-    "pycryptodome>=3.20.0",
 ]
 
 [project.optional-dependencies]

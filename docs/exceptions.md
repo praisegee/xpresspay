@@ -10,7 +10,6 @@ XpressPayError
 ├── ValidationError       (HTTP 400)
 ├── NotFoundError         (HTTP 404)
 ├── ProcessingError       (HTTP 5xx)
-├── EncryptionError       (local 3DES failure)
 └── NetworkError          (timeout / connection refused)
 ```
 
@@ -29,19 +28,19 @@ from xpresspay import XpressPayError
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | `message` | `str` | Human-readable error description |
-| `status_code` | `int \| None` | HTTP status code, or `None` for local errors |
+| `status_code` | `int \| None` | HTTP status code, or `None` for network errors |
 
 ---
 
 ### `AuthenticationError`
 
-Raised when the API returns HTTP **401**. Usually means your public key is wrong, missing, or the key does not match the environment (sandbox vs live).
+Raised when the API returns HTTP **401**. Usually means your public key is wrong, missing, or does not match the environment (sandbox vs live).
 
 ```python
 from xpresspay import AuthenticationError
 
 try:
-    client.cards.initiate(...)
+    client.payments.initialize(...)
 except AuthenticationError as e:
     print(e.message)        # "Invalid public key"
     print(e.status_code)    # 401
@@ -51,13 +50,13 @@ except AuthenticationError as e:
 
 ### `ValidationError`
 
-Raised when the API returns HTTP **400**. The request was well-formed but contained invalid data (e.g. missing required fields, wrong card number format).
+Raised when the API returns HTTP **400**. The request was well-formed but contained invalid data (e.g. missing required fields, invalid transaction ID length).
 
 ```python
 from xpresspay import ValidationError
 
 try:
-    client.cards.initiate(...)
+    client.payments.initialize(...)
 except ValidationError as e:
     print(e.message)     # "transactionId is required"
     print(e.error_type)  # error sub-type returned by the API, if any
@@ -72,13 +71,13 @@ except ValidationError as e:
 
 ### `NotFoundError`
 
-Raised when the API returns HTTP **404**. Typically means the `transaction_id` passed to `query()` or `validate_otp()` does not exist.
+Raised when the API returns HTTP **404**. Typically means the `transaction_id` passed to `verify()` does not exist.
 
 ```python
 from xpresspay import NotFoundError
 
 try:
-    client.cards.query(...)
+    client.payments.verify(...)
 except NotFoundError as e:
     print(e.message)     # "Transaction not found"
     print(e.status_code) # 404
@@ -94,30 +93,10 @@ Raised when the API returns HTTP **5xx**. The Xpresspay server encountered an in
 from xpresspay import ProcessingError
 
 try:
-    client.cards.initiate(...)
+    client.payments.initialize(...)
 except ProcessingError as e:
     print(e.message)     # "Internal server error"
     print(e.status_code) # 500, 502, 503, …
-```
-
----
-
-### `EncryptionError`
-
-Raised locally when the 3DES encryption step fails — before any network request is made. Common causes:
-
-- Secret key is empty or too short
-- Secret key does not start with `XPSECK-`
-- Payload contains non-serialisable Python objects
-
-```python
-from xpresspay import EncryptionError
-
-try:
-    client.cards.initiate(...)
-except EncryptionError as e:
-    print(e.message)     # "Secret key is too short …"
-    print(e.status_code) # None (local error)
 ```
 
 ---
@@ -132,7 +111,7 @@ These errors are **safe to retry** — no charge was made because the request ne
 from xpresspay import NetworkError
 
 try:
-    client.cards.initiate(...)
+    client.payments.initialize(...)
 except NetworkError as e:
     print(e.message)  # "Request timed out: …" or "Network error: …"
     # Safe to retry
@@ -149,19 +128,18 @@ from xpresspay import (
     ValidationError,
     NotFoundError,
     ProcessingError,
-    EncryptionError,
     NetworkError,
 )
 
 try:
-    response = client.cards.initiate(...)
+    response = client.payments.initialize(...)
 
 except AuthenticationError:
     # Wrong key or wrong environment — fix config, do not retry
     raise
 
 except ValidationError as e:
-    # Bad input — show e.message to the developer / log it
+    # Bad input — log and surface to developer
     print("Invalid request:", e.message, e.error_type)
 
 except NotFoundError:
@@ -176,10 +154,6 @@ except ProcessingError:
 except NetworkError:
     # No request reached Xpresspay — safe to retry immediately
     # ... retry logic
-
-except EncryptionError as e:
-    # Local configuration error — fix secret key
-    raise RuntimeError("Encryption misconfigured") from e
 
 except XpressPayError as e:
     # Catch-all for any other SDK error

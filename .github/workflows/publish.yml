@@ -9,9 +9,31 @@ permissions:
   id-token: write   # required for PyPI Trusted Publishing
 
 jobs:
+  test:
+    name: Test before publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --group dev
+
+      - name: Run tests
+        run: uv run pytest tests/ -v
+
+      - name: Lint
+        run: uv run ruff check xpresspay/ tests/
+
   publish:
     name: Build and publish to PyPI
     runs-on: ubuntu-latest
+    needs: test
 
     environment:
       name: pypi

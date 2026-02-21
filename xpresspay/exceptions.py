@@ -41,13 +41,6 @@ class ProcessingError(XpressPayError):
     """Raised when a server-side processing error occurs (HTTP 5xx)."""
 
 
-class EncryptionError(XpressPayError):
-    """Raised when payload encryption fails."""
-
-    def __init__(self, message: str) -> None:
-        super().__init__(message, status_code=None)
-
-
 class NetworkError(XpressPayError):
     """Raised when a network-level error occurs (timeout, connection refused, etc.)."""
 

@@ -52,7 +52,6 @@ plugins:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Card Payments: card-payments.md
-  - Account Payments: account-payments.md
+  - Payments: card-payments.md
   - Exceptions: exceptions.md
   - API Reference: api-reference.md
