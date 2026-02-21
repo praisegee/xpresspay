@@ -211,7 +211,7 @@ git clone https://github.com/praisegod/xpresspay
 cd xpresspay
 uv sync --group dev
 uv run pytest
-uv run ruff check src/ tests/
+uv run ruff check xpresspay/ tests/
 ```
 
 ## Environment variables
