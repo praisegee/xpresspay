@@ -87,9 +87,7 @@ class AccountResource:
         Returns:
             :class:`~xpresspay.models.PaymentResponse`
         """
-        raw = self._http.post(
-            f"{self._base}/v1/payments/validate", request.to_dict()
-        )
+        raw = self._http.post(f"{self._base}/v1/payments/validate", request.to_dict())
         return PaymentResponse(
             status=raw.get("status", ""),
             message=raw.get("message", ""),
@@ -114,9 +112,7 @@ class AccountResource:
         Returns:
             :class:`~xpresspay.models.PaymentResponse`
         """
-        raw = self._http.post(
-            f"{self._base}/v1/payments/query", request.to_dict()
-        )
+        raw = self._http.post(f"{self._base}/v1/payments/query", request.to_dict())
         return PaymentResponse(
             status=raw.get("status", ""),
             message=raw.get("message", ""),
