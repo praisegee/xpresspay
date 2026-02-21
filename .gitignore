@@ -11,3 +11,8 @@ wheels/
 
 # MkDocs build output
 site/
+
+# Cache directories
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
