@@ -271,26 +271,7 @@
   
     
   
-  Card Payments
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../account-payments/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Account Payments
+  Payments
 
       </a>
     </li>
@@ -529,17 +510,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#check-the-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check the environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -572,34 +542,7 @@
   <span class="md-ellipsis">
     
   
-    Card Payments
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../account-payments/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Account Payments
+    Payments
   
 
     
@@ -748,17 +691,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#check-the-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check the environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -807,16 +739,15 @@
 <p>Xpresspay issues two separate key pairs: one for <strong>sandbox</strong> (testing) and one for <strong>live</strong> (production). Get them from the merchant dashboard:</p>
 <ol>
 <li>
-<p><strong>Create an account</strong> — go to <a href="https://www.xpresspayments.com">xpresspayments.com</a> and sign up for a merchant account. You will receive a confirmation email to verify your address.</p>
+<p><strong>Create an account</strong> — go to <a href="https://myxpresspay.com">myxpresspay.com</a> and sign up for a merchant account. You will receive a confirmation email to verify your address.</p>
 </li>
 <li>
 <p><strong>Log in to the dashboard</strong> — after email verification, sign in at the merchant portal.</p>
 </li>
 <li>
-<p><strong>Locate your API keys</strong> — navigate to <strong>Settings → API Keys</strong> (or <strong>Developer → API Keys</strong>, depending on the dashboard version). You will see:</p>
+<p><strong>Locate your API keys</strong> — go to <a href="https://myxpresspay.com/settings/keys">myxpresspay.com/settings/keys</a>. You will see:</p>
 <ul>
-<li><strong>Public key</strong> — prefixed <code>XPPUBK-…</code>. Safe to use on the server side in API requests.</li>
-<li><strong>Secret key</strong> — prefixed <code>XPSECK-…</code>. Used locally to encrypt payloads. <strong>Never expose this in client-side code, logs, or version control.</strong></li>
+<li><strong>Public key</strong> — prefixed <code>XPPUBK-…</code>. This is your Bearer token for all API requests.</li>
 </ul>
 </li>
 <li>
@@ -830,7 +761,6 @@
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
 <p>Never hardcode your keys. Export them from your shell or load them via a <code>.env</code> file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XPRESSPAY_PUBLIC_KEY</span><span class="o">=</span><span class="s2">&quot;XPPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X&quot;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XPRESSPAY_SECRET_KEY</span><span class="o">=</span><span class="s2">&quot;XPSECK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X&quot;</span>
 </span></code></pre></div>
 <h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -838,9 +768,8 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">XpressPay</span><span class="p">(</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">public_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XPRESSPAY_PUBLIC_KEY&quot;</span><span class="p">],</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">secret_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XPRESSPAY_SECRET_KEY&quot;</span><span class="p">],</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># set False for live/production</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># set False for live/production</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">)</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -857,12 +786,6 @@
 <td><code>str</code></td>
 <td>required</td>
 <td>Must start with <code>XPPUBK-</code></td>
-</tr>
-<tr>
-<td><code>secret_key</code></td>
-<td><code>str</code></td>
-<td>required</td>
-<td>Must start with <code>XPSECK-</code>. Never transmitted.</td>
 </tr>
 <tr>
 <td><code>sandbox</code></td>
@@ -882,7 +805,7 @@
 <p class="admonition-title">Use as a context manager</p>
 <p>The client implements <code>__enter__</code> / <code>__exit__</code> so you can use it in a <code>with</code> block and HTTP connections are released automatically:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">with</span> <span class="n">XpressPay</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">initiate</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <h2 id="sandbox-vs-live">Sandbox vs live<a class="headerlink" href="#sandbox-vs-live" title="Permanent link">&para;</a></h2>
@@ -896,23 +819,18 @@
 <tbody>
 <tr>
 <td><code>sandbox=True</code></td>
-<td><code>https://xpresspayonlineapisandbox.xpresspayments.com</code></td>
+<td><code>https://pgsandbox.xpresspayments.com:6004</code></td>
 </tr>
 <tr>
 <td><code>sandbox=False</code></td>
-<td><code>https://api.xpresspayonline.com</code></td>
+<td><code>https://myxpresspay.com:6004</code></td>
 </tr>
 </tbody>
 </table>
 <p>Use sandbox keys (issued separately from your live keys) when <code>sandbox=True</code>.</p>
-<h2 id="check-the-environment">Check the environment<a class="headerlink" href="#check-the-environment" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">)</span>   <span class="c1"># XPPUBK-…</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">is_sandbox</span><span class="p">)</span>   <span class="c1"># True / False</span>
-</span></code></pre></div>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../card-payments/">Card payments</a> — charge a debit or credit card</li>
-<li><a href="../account-payments/">Account payments</a> — debit a bank account directly</li>
+<li><a href="../card-payments/">Payments</a> — initialize a transaction and verify payment</li>
 <li><a href="../exceptions/">Exceptions</a> — handle errors gracefully</li>
 </ul>
 

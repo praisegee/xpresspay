@@ -16,7 +16,7 @@
         <link rel="prev" href="../getting-started/">
       
       
-        <link rel="next" href="../account-payments/">
+        <link rel="next" href="../exceptions/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Card Payments - xpresspay</title>
+        <title>Payments - xpresspay</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#card-payments" class="md-skip">
+        <a href="#payments" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Card Payments
+              Payments
             
           </span>
         </div>
@@ -271,26 +271,7 @@
   
     
   
-  Card Payments
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../account-payments/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Account Payments
+  Payments
 
       </a>
     </li>
@@ -457,7 +438,7 @@
   <span class="md-ellipsis">
     
   
-    Card Payments
+    Payments
   
 
     
@@ -475,7 +456,7 @@
   <span class="md-ellipsis">
     
   
-    Card Payments
+    Payments
   
 
     
@@ -501,22 +482,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-initiate" class="md-nav__link">
+  <a href="#initialize-a-transaction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1 — Initiate
+        Initialize a transaction
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 1 — Initiate">
+    <nav class="md-nav" aria-label="Initialize a transaction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cardpaymentrequest-fields" class="md-nav__link">
+  <a href="#initializerequest-fields" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CardPaymentRequest fields
+        InitializeRequest fields
       
     </span>
   </a>
@@ -524,10 +505,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#reading-the-response" class="md-nav__link">
+  <a href="#initializeresponse-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading the response
+        InitializeResponse properties
       
     </span>
   </a>
@@ -540,72 +521,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2a-pin-authentication-nigerian-cards" class="md-nav__link">
+  <a href="#verify-a-payment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2a — PIN authentication (Nigerian cards)
+        Verify a payment
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2b-avs-authentication-international-cards" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2b — AVS authentication (international cards)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 2b — AVS authentication (international cards)">
+    <nav class="md-nav" aria-label="Verify a payment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3dsecure-iframe-flow" class="md-nav__link">
+  <a href="#verifyresponse-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3DSecure iframe flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-validate-otp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3 — Validate OTP
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-verify-server-side" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4 — Verify server-side
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 4 — Verify server-side">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#paymentresponse-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PaymentResponse properties
+        VerifyResponse properties
       
     </span>
   </a>
@@ -632,33 +563,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../account-payments/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Account Payments
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -744,22 +648,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-initiate" class="md-nav__link">
+  <a href="#initialize-a-transaction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1 — Initiate
+        Initialize a transaction
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 1 — Initiate">
+    <nav class="md-nav" aria-label="Initialize a transaction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cardpaymentrequest-fields" class="md-nav__link">
+  <a href="#initializerequest-fields" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CardPaymentRequest fields
+        InitializeRequest fields
       
     </span>
   </a>
@@ -767,10 +671,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#reading-the-response" class="md-nav__link">
+  <a href="#initializeresponse-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading the response
+        InitializeResponse properties
       
     </span>
   </a>
@@ -783,72 +687,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2a-pin-authentication-nigerian-cards" class="md-nav__link">
+  <a href="#verify-a-payment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2a — PIN authentication (Nigerian cards)
+        Verify a payment
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2b-avs-authentication-international-cards" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2b — AVS authentication (international cards)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 2b — AVS authentication (international cards)">
+    <nav class="md-nav" aria-label="Verify a payment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3dsecure-iframe-flow" class="md-nav__link">
+  <a href="#verifyresponse-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3DSecure iframe flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-validate-otp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3 — Validate OTP
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-verify-server-side" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4 — Verify server-side
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 4 — Verify server-side">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#paymentresponse-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PaymentResponse properties
+        VerifyResponse properties
       
     </span>
   </a>
@@ -891,44 +745,43 @@
   
 
 
-<h1 id="card-payments">Card payments<a class="headerlink" href="#card-payments" title="Permanent link">&para;</a></h1>
-<p>A card payment goes through up to four steps depending on the card type.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Initiate
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   │
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   ├─ suggested_authentication == &quot;PIN&quot;
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   │       └─ authenticate_pin()  →  validate_otp()  →  query()
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   └─ suggested_authentication == &quot;AVS_VBVSECURECODE&quot;
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>           └─ authenticate_avs()
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                   ├─ auth_url present  →  (iframe 3DSecure)  →  query()
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                   └─ requires_validation  →  validate_otp()  →  query()
+<h1 id="payments">Payments<a class="headerlink" href="#payments" title="Permanent link">&para;</a></h1>
+<p>The Xpresspay integration uses a hosted payment page flow — you initialize a transaction from your server, then redirect the customer to Xpresspay's hosted page to complete payment. Once the customer pays, they are sent back to your <code>callback_url</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Initialize (server-side)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>       │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>       └─ Redirect customer to payment_url
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>               │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>               └─ Customer pays on Xpresspay hosted page
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                       │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                       └─ Redirect to callback_url
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                               │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                               └─ Verify (server-side) ← always do this
 </span></code></pre></div>
 <hr />
-<h2 id="step-1-initiate">Step 1 — Initiate<a class="headerlink" href="#step-1-initiate" title="Permanent link">&para;</a></h2>
-<p>Encrypt and submit the card details. The response tells you what the next step is.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">XpressPay</span><span class="p">,</span> <span class="n">CardPaymentRequest</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">initiate</span><span class="p">(</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">CardPaymentRequest</span><span class="p">(</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="n">card_number</span><span class="o">=</span><span class="s2">&quot;5438898014560229&quot;</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="n">cvv</span><span class="o">=</span><span class="s2">&quot;789&quot;</span><span class="p">,</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="n">expiry_month</span><span class="o">=</span><span class="s2">&quot;09&quot;</span><span class="p">,</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="n">expiry_year</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">,</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="n">amount</span><span class="o">=</span><span class="s2">&quot;5000&quot;</span><span class="p">,</span>          <span class="c1"># in kobo (NGN) or smallest currency unit</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">email</span><span class="o">=</span><span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="c1"># Optional but recommended</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="n">phone_number</span><span class="o">=</span><span class="s2">&quot;08012345678&quot;</span><span class="p">,</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Okonkwo&quot;</span><span class="p">,</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="n">currency</span><span class="o">=</span><span class="s2">&quot;NGN&quot;</span><span class="p">,</span>         <span class="c1"># default</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="n">country</span><span class="o">=</span><span class="s2">&quot;NG&quot;</span><span class="p">,</span>           <span class="c1"># default</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="p">)</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">)</span>
+<h2 id="initialize-a-transaction">Initialize a transaction<a class="headerlink" href="#initialize-a-transaction" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">XpressPay</span><span class="p">,</span> <span class="n">InitializeRequest</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">XpressPay</span><span class="p">(</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">public_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XPRESSPAY_PUBLIC_KEY&quot;</span><span class="p">],</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">InitializeRequest</span><span class="p">(</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">amount</span><span class="o">=</span><span class="s2">&quot;1000.00&quot;</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="n">email</span><span class="o">=</span><span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">callback_url</span><span class="o">=</span><span class="s2">&quot;https://yourdomain.com/payment/callback&quot;</span><span class="p">,</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="p">)</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">is_successful</span><span class="p">:</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="c1"># Redirect the customer to the hosted payment page</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">payment_url</span><span class="p">)</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">reference</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="cardpaymentrequest-fields">CardPaymentRequest fields<a class="headerlink" href="#cardpaymentrequest-fields" title="Permanent link">&para;</a></h3>
+<h3 id="initializerequest-fields">InitializeRequest fields<a class="headerlink" href="#initializerequest-fields" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -940,52 +793,22 @@
 </thead>
 <tbody>
 <tr>
-<td><code>public_key</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Your <code>XPPUBK-…</code> key</td>
-</tr>
-<tr>
-<td><code>card_number</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>16-digit card number</td>
-</tr>
-<tr>
-<td><code>cvv</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>3 or 4 digit security code</td>
-</tr>
-<tr>
-<td><code>expiry_month</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Two-digit month, e.g. <code>"09"</code></td>
-</tr>
-<tr>
-<td><code>expiry_year</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Two-digit year, e.g. <code>"25"</code></td>
-</tr>
-<tr>
 <td><code>amount</code></td>
 <td><code>str</code></td>
 <td>✓</td>
-<td>Amount in kobo (100 kobo = ₦1)</td>
+<td>Amount to charge, e.g. <code>"1000.00"</code></td>
 </tr>
 <tr>
 <td><code>email</code></td>
 <td><code>str</code></td>
 <td>✓</td>
-<td>Customer email</td>
+<td>Customer's email address</td>
 </tr>
 <tr>
 <td><code>transaction_id</code></td>
 <td><code>str</code></td>
 <td>✓</td>
-<td>Your unique order/transaction ID</td>
+<td>Your unique transaction ID (6–30 characters)</td>
 </tr>
 <tr>
 <td><code>currency</code></td>
@@ -994,295 +817,104 @@
 <td>Default: <code>"NGN"</code></td>
 </tr>
 <tr>
-<td><code>country</code></td>
+<td><code>product_id</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Default: <code>"NG"</code></td>
+<td>Unique product identifier</td>
 </tr>
 <tr>
-<td><code>phone_number</code></td>
+<td><code>product_description</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Customer phone</td>
+<td>Description shown on the payment page</td>
 </tr>
 <tr>
-<td><code>first_name</code></td>
+<td><code>callback_url</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Customer first name</td>
+<td>URL the customer is redirected to after payment</td>
 </tr>
 <tr>
-<td><code>last_name</code></td>
+<td><code>body_color</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Customer last name</td>
+<td>Custom hex colour for the payment page body</td>
 </tr>
 <tr>
-<td><code>ip</code></td>
+<td><code>button_color</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Customer IP address</td>
+<td>Custom hex colour for payment page buttons</td>
 </tr>
 <tr>
-<td><code>device_finger_print</code></td>
+<td><code>footer_text</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Browser fingerprint</td>
+<td>Custom footer text on the payment page</td>
 </tr>
 <tr>
-<td><code>redirect_url</code></td>
+<td><code>footer_logo</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Callback URL after 3DSecure</td>
+<td>URL to your logo shown in the page footer</td>
 </tr>
 <tr>
-<td><code>billing_zip</code></td>
+<td><code>split_payment_reference</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Required for AVS cards</td>
+<td>Reference for a pre-configured split payment</td>
 </tr>
 <tr>
-<td><code>billing_city</code></td>
+<td><code>is_split_payment</code></td>
+<td><code>bool</code></td>
+<td></td>
+<td>Set <code>True</code> to enable split settlement</td>
+</tr>
+<tr>
+<td><code>is_api_user</code></td>
+<td><code>bool</code></td>
+<td></td>
+<td>Default: <code>True</code> — set when integrating via API</td>
+</tr>
+<tr>
+<td><code>merchant_name</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Required for AVS cards</td>
+<td>Your business name shown on the payment page</td>
 </tr>
 <tr>
-<td><code>billing_address</code></td>
+<td><code>logo_url</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Required for AVS cards</td>
+<td>URL to your business logo</td>
 </tr>
 <tr>
-<td><code>billing_state</code></td>
+<td><code>mode</code></td>
 <td><code>str</code></td>
 <td></td>
-<td>Required for AVS cards</td>
+<td>Payment mode</td>
 </tr>
 <tr>
-<td><code>billing_country</code></td>
-<td><code>str</code></td>
+<td><code>apply_conveniency_charge</code></td>
+<td><code>bool</code></td>
 <td></td>
-<td>Required for AVS cards</td>
+<td>Pass the convenience charge to the customer</td>
 </tr>
 <tr>
-<td><code>meta</code></td>
+<td><code>is_recurring</code></td>
+<td><code>bool</code></td>
+<td></td>
+<td>Mark transaction as recurring</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
 <td><code>list[dict]</code></td>
 <td></td>
-<td>Key-value metadata pairs</td>
+<td>Extra data: <code>[{"name": "key", "value": "val"}]</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="reading-the-response">Reading the response<a class="headerlink" href="#reading-the-response" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">suggested_authentication</span><span class="p">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># &quot;PIN&quot;               → local Nigerian card, needs PIN</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># &quot;AVS_VBVSECURECODE&quot; → international card, needs billing address</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># None                → already settled (rare on first call)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">is_successful</span><span class="p">)</span>     <span class="c1"># True if paymentResponseCode == &quot;000&quot;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">requires_validation</span><span class="p">)</span>  <span class="c1"># True if OTP step is pending</span>
-</span></code></pre></div>
-<hr />
-<h2 id="step-2a-pin-authentication-nigerian-cards">Step 2a — PIN authentication (Nigerian cards)<a class="headerlink" href="#step-2a-pin-authentication-nigerian-cards" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">CardPinAuthRequest</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">suggested_authentication</span> <span class="o">==</span> <span class="s2">&quot;PIN&quot;</span><span class="p">:</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">auth</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">authenticate_pin</span><span class="p">(</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">CardPinAuthRequest</span><span class="p">(</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>            <span class="n">pin</span><span class="o">=</span><span class="s2">&quot;1234&quot;</span><span class="p">,</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="p">)</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="p">)</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="c1"># Customer typically receives an OTP on their phone next</span>
-</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>public_key</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Your <code>XPPUBK-…</code> key</td>
-</tr>
-<tr>
-<td><code>transaction_id</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Same ID used in initiate</td>
-</tr>
-<tr>
-<td><code>pin</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>4-digit card PIN</td>
-</tr>
-</tbody>
-</table>
-<p>After a successful PIN submission, proceed to <a href="#step-3-validate-otp">Step 3 — Validate OTP</a>.</p>
-<hr />
-<h2 id="step-2b-avs-authentication-international-cards">Step 2b — AVS authentication (international cards)<a class="headerlink" href="#step-2b-avs-authentication-international-cards" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">CardAvsAuthRequest</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">suggested_authentication</span> <span class="o">==</span> <span class="s2">&quot;AVS_VBVSECURECODE&quot;</span><span class="p">:</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">auth</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">authenticate_avs</span><span class="p">(</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="n">CardAvsAuthRequest</span><span class="p">(</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>            <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>            <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>            <span class="n">billing_zip</span><span class="o">=</span><span class="s2">&quot;07205&quot;</span><span class="p">,</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>            <span class="n">billing_city</span><span class="o">=</span><span class="s2">&quot;Hillside&quot;</span><span class="p">,</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>            <span class="n">billing_address</span><span class="o">=</span><span class="s2">&quot;470 Mundet Pl&quot;</span><span class="p">,</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>            <span class="n">billing_state</span><span class="o">=</span><span class="s2">&quot;NJ&quot;</span><span class="p">,</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>            <span class="n">billing_country</span><span class="o">=</span><span class="s2">&quot;US&quot;</span><span class="p">,</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="p">)</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="p">)</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="k">if</span> <span class="n">auth</span><span class="o">.</span><span class="n">auth_url</span><span class="p">:</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="c1"># Render auth.auth_url in an iframe for 3DSecure flow</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Redirect to:&quot;</span><span class="p">,</span> <span class="n">auth</span><span class="o">.</span><span class="n">auth_url</span><span class="p">)</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="k">elif</span> <span class="n">auth</span><span class="o">.</span><span class="n">requires_validation</span><span class="p">:</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>        <span class="c1"># OTP sent — proceed to validate_otp()</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>        <span class="k">pass</span>
-</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>public_key</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Your <code>XPPUBK-…</code> key</td>
-</tr>
-<tr>
-<td><code>transaction_id</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Same ID used in initiate</td>
-</tr>
-<tr>
-<td><code>billing_zip</code></td>
-<td><code>str</code></td>
-<td></td>
-<td>Postal/ZIP code</td>
-</tr>
-<tr>
-<td><code>billing_city</code></td>
-<td><code>str</code></td>
-<td></td>
-<td>City</td>
-</tr>
-<tr>
-<td><code>billing_address</code></td>
-<td><code>str</code></td>
-<td></td>
-<td>Street address</td>
-</tr>
-<tr>
-<td><code>billing_state</code></td>
-<td><code>str</code></td>
-<td></td>
-<td>State/province code</td>
-</tr>
-<tr>
-<td><code>billing_country</code></td>
-<td><code>str</code></td>
-<td></td>
-<td>Two-letter ISO country code</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3dsecure-iframe-flow">3DSecure iframe flow<a class="headerlink" href="#3dsecure-iframe-flow" title="Permanent link">&para;</a></h3>
-<p>When <code>auth.auth_url</code> is present, embed it in a page:</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ auth_url }}&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;600&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;400&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</span></code></pre></div>
-<p>After the customer completes 3DSecure in the iframe, call <code>query()</code> server-side to confirm the payment.</p>
-<hr />
-<h2 id="step-3-validate-otp">Step 3 — Validate OTP<a class="headerlink" href="#step-3-validate-otp" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">OtpValidationRequest</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">validated</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">validate_otp</span><span class="p">(</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">OtpValidationRequest</span><span class="p">(</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="n">otp</span><span class="o">=</span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="n">payment_type</span><span class="o">=</span><span class="s2">&quot;CARD&quot;</span><span class="p">,</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="p">)</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">)</span>
-</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>public_key</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Your <code>XPPUBK-…</code> key</td>
-</tr>
-<tr>
-<td><code>transaction_id</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Same ID used in initiate</td>
-</tr>
-<tr>
-<td><code>otp</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>OTP entered by the customer</td>
-</tr>
-<tr>
-<td><code>payment_type</code></td>
-<td><code>str</code></td>
-<td>✓</td>
-<td>Must be <code>"CARD"</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="step-4-verify-server-side">Step 4 — Verify server-side<a class="headerlink" href="#step-4-verify-server-side" title="Permanent link">&para;</a></h2>
-<div class="admonition danger">
-<p class="admonition-title">Always verify before fulfilling an order</p>
-<p>Never trust the client side. Always confirm the payment server-side
-before delivering goods or services.</p>
-</div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">PaymentQueryRequest</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">PaymentQueryRequest</span><span class="p">(</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="n">payment_type</span><span class="o">=</span><span class="s2">&quot;CARD&quot;</span><span class="p">,</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="p">)</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">)</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_successful</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="s2">&quot;5000&quot;</span><span class="p">:</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="c1"># Safe to fulfill the order</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confirmed:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">transaction_reference</span><span class="p">)</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not settled:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
-</span></code></pre></div>
-<h3 id="paymentresponse-properties">PaymentResponse properties<a class="headerlink" href="#paymentresponse-properties" title="Permanent link">&para;</a></h3>
+<h3 id="initializeresponse-properties">InitializeResponse properties<a class="headerlink" href="#initializeresponse-properties" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1295,138 +927,164 @@ before delivering goods or services.</p>
 <tr>
 <td><code>is_successful</code></td>
 <td><code>bool</code></td>
-<td><code>paymentResponseCode == "000"</code></td>
+<td><code>True</code> when <code>responseCode == "00"</code></td>
 </tr>
 <tr>
-<td><code>requires_validation</code></td>
-<td><code>bool</code></td>
-<td>OTP/PIN step still pending</td>
-</tr>
-<tr>
-<td><code>suggested_authentication</code></td>
+<td><code>payment_url</code></td>
 <td><code>str \| None</code></td>
-<td><code>"PIN"</code>, <code>"AVS_VBVSECURECODE"</code>, or <code>None</code></td>
+<td>Hosted payment page URL — redirect the customer here</td>
 </tr>
 <tr>
-<td><code>auth_url</code></td>
+<td><code>reference</code></td>
 <td><code>str \| None</code></td>
-<td>3DSecure iframe URL</td>
+<td>Transaction reference from Xpresspay</td>
 </tr>
 <tr>
-<td><code>transaction_reference</code></td>
-<td><code>str \| None</code></td>
-<td>Xpresspay's reference</td>
+<td><code>response_code</code></td>
+<td><code>str</code></td>
+<td>Raw API response code</td>
 </tr>
 <tr>
-<td><code>unique_key</code></td>
-<td><code>str \| None</code></td>
-<td>Xpresspay's unique payment key</td>
-</tr>
-<tr>
-<td><code>amount</code></td>
-<td><code>str \| None</code></td>
-<td>Original amount</td>
-</tr>
-<tr>
-<td><code>charged_amount</code></td>
-<td><code>str \| None</code></td>
-<td>Amount actually charged (may include fees)</td>
-</tr>
-<tr>
-<td><code>payment_type</code></td>
-<td><code>str \| None</code></td>
-<td><code>"CARD"</code></td>
-</tr>
-<tr>
-<td><code>validation_instruction</code></td>
-<td><code>str \| None</code></td>
-<td>Human-readable next-step message</td>
+<td><code>response_message</code></td>
+<td><code>str</code></td>
+<td>Human-readable API message</td>
 </tr>
 <tr>
 <td><code>raw</code></td>
 <td><code>dict</code></td>
-<td>Full JSON response for unlisted fields</td>
+<td>Full JSON response</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="verify-a-payment">Verify a payment<a class="headerlink" href="#verify-a-payment" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Always verify before fulfilling an order</p>
+<p>Never trust the client-side redirect. Always confirm the payment
+server-side before delivering goods or services.</p>
+</div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">VerifyRequest</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">VerifyRequest</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_successful</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="s2">&quot;1000.00&quot;</span><span class="p">:</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="c1"># Safe to fulfill the order</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confirmed:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">gateway_response</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not confirmed:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="verifyresponse-properties">VerifyResponse properties<a class="headerlink" href="#verifyresponse-properties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_successful</code></td>
+<td><code>bool</code></td>
+<td><code>True</code> when the transaction was successfully settled</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td><code>str \| None</code></td>
+<td>Transaction amount</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td><code>str \| None</code></td>
+<td>Currency code, e.g. <code>"NGN"</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>str \| None</code></td>
+<td>Status description, e.g. <code>"Transaction Successful"</code></td>
+</tr>
+<tr>
+<td><code>payment_type</code></td>
+<td><code>str \| None</code></td>
+<td>e.g. <code>"Card"</code></td>
+</tr>
+<tr>
+<td><code>gateway_response</code></td>
+<td><code>str \| None</code></td>
+<td>Raw gateway message</td>
+</tr>
+<tr>
+<td><code>transaction_id</code></td>
+<td><code>str \| None</code></td>
+<td>Your original transaction ID</td>
+</tr>
+<tr>
+<td><code>response_code</code></td>
+<td><code>str</code></td>
+<td>Raw API response code</td>
+</tr>
+<tr>
+<td><code>response_message</code></td>
+<td><code>str</code></td>
+<td>Human-readable API message</td>
+</tr>
+<tr>
+<td><code>raw</code></td>
+<td><code>dict</code></td>
+<td>Full JSON response</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="complete-example">Complete example<a class="headerlink" href="#complete-example" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">XpressPay</span><span class="p">,</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">CardPaymentRequest</span><span class="p">,</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">CardPinAuthRequest</span><span class="p">,</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">OtpValidationRequest</span><span class="p">,</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="n">PaymentQueryRequest</span><span class="p">,</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="n">AuthenticationError</span><span class="p">,</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">ValidationError</span><span class="p">,</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">NetworkError</span><span class="p">,</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">)</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">client</span> <span class="o">=</span> <span class="n">XpressPay</span><span class="p">(</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="n">public_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XPRESSPAY_PUBLIC_KEY&quot;</span><span class="p">],</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="n">secret_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XPRESSPAY_SECRET_KEY&quot;</span><span class="p">],</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">)</span>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="k">try</span><span class="p">:</span>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>    <span class="c1"># 1 — Initiate</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">initiate</span><span class="p">(</span>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>        <span class="n">CardPaymentRequest</span><span class="p">(</span>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>            <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>            <span class="n">card_number</span><span class="o">=</span><span class="s2">&quot;5438898014560229&quot;</span><span class="p">,</span>
-</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>            <span class="n">cvv</span><span class="o">=</span><span class="s2">&quot;789&quot;</span><span class="p">,</span>
-</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>            <span class="n">expiry_month</span><span class="o">=</span><span class="s2">&quot;09&quot;</span><span class="p">,</span>
-</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>            <span class="n">expiry_year</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">,</span>
-</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>            <span class="n">amount</span><span class="o">=</span><span class="s2">&quot;5000&quot;</span><span class="p">,</span>
-</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>            <span class="n">email</span><span class="o">=</span><span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
-</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>            <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>        <span class="p">)</span>
-</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>    <span class="p">)</span>
-</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>
-</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>    <span class="c1"># 2 — Authenticate</span>
-</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>    <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">suggested_authentication</span> <span class="o">==</span> <span class="s2">&quot;PIN&quot;</span><span class="p">:</span>
-</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>        <span class="n">pin</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter card PIN: &quot;</span><span class="p">)</span>
-</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>        <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">authenticate_pin</span><span class="p">(</span>
-</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>            <span class="n">CardPinAuthRequest</span><span class="p">(</span>
-</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>                <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>                <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>                <span class="n">pin</span><span class="o">=</span><span class="n">pin</span><span class="p">,</span>
-</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>            <span class="p">)</span>
-</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>        <span class="p">)</span>
-</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>
-</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>    <span class="c1"># 3 — Validate OTP</span>
-</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>    <span class="n">otp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter OTP: &quot;</span><span class="p">)</span>
-</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>    <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">validate_otp</span><span class="p">(</span>
-</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>        <span class="n">OtpValidationRequest</span><span class="p">(</span>
-</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>            <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>            <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>            <span class="n">otp</span><span class="o">=</span><span class="n">otp</span><span class="p">,</span>
-</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>            <span class="n">payment_type</span><span class="o">=</span><span class="s2">&quot;CARD&quot;</span><span class="p">,</span>
-</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>        <span class="p">)</span>
-</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>    <span class="p">)</span>
-</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>
-</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a>    <span class="c1"># 4 — Verify</span>
-</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
-</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a>        <span class="n">PaymentQueryRequest</span><span class="p">(</span>
-</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a>            <span class="n">public_key</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">public_key</span><span class="p">,</span>
-</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a>            <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
-</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>            <span class="n">payment_type</span><span class="o">=</span><span class="s2">&quot;CARD&quot;</span><span class="p">,</span>
-</span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a>        <span class="p">)</span>
-</span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a>    <span class="p">)</span>
-</span><span id="__span-8-64"><a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a>
-</span><span id="__span-8-65"><a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a>    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_successful</span><span class="p">:</span>
-</span><span id="__span-8-66"><a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Payment confirmed:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">transaction_reference</span><span class="p">)</span>
-</span><span id="__span-8-67"><a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a>
-</span><span id="__span-8-68"><a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-8-69"><a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bad request:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
-</span><span id="__span-8-70"><a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a><span class="k">except</span> <span class="n">AuthenticationError</span><span class="p">:</span>
-</span><span id="__span-8-71"><a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Check your API keys&quot;</span><span class="p">)</span>
-</span><span id="__span-8-72"><a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a><span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
-</span><span id="__span-8-73"><a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Network issue — safe to retry&quot;</span><span class="p">)</span>
-</span><span id="__span-8-74"><a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a>
-</span><span id="__span-8-75"><a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a><span class="k">finally</span><span class="p">:</span>
-</span><span id="__span-8-76"><a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a>    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">XpressPay</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">InitializeRequest</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">VerifyRequest</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">AuthenticationError</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">ValidationError</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">NetworkError</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">client</span> <span class="o">=</span> <span class="n">XpressPay</span><span class="p">(</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">public_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XPRESSPAY_PUBLIC_KEY&quot;</span><span class="p">],</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="c1"># 1 — Initialize</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">InitializeRequest</span><span class="p">(</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>            <span class="n">amount</span><span class="o">=</span><span class="s2">&quot;1000.00&quot;</span><span class="p">,</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>            <span class="n">email</span><span class="o">=</span><span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>            <span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">,</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>            <span class="n">callback_url</span><span class="o">=</span><span class="s2">&quot;https://yourdomain.com/payment/callback&quot;</span><span class="p">,</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>            <span class="n">merchant_name</span><span class="o">=</span><span class="s2">&quot;My Store&quot;</span><span class="p">,</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="p">)</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="p">)</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">is_successful</span><span class="p">:</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Redirect customer to:&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">payment_url</span><span class="p">)</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    <span class="c1"># 2 — After customer returns to callback_url, verify server-side</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        <span class="n">VerifyRequest</span><span class="p">(</span><span class="n">transaction_id</span><span class="o">=</span><span class="s2">&quot;ORDER-001&quot;</span><span class="p">)</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    <span class="p">)</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_successful</span><span class="p">:</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Payment confirmed:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">gateway_response</span><span class="p">)</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bad request:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="k">except</span> <span class="n">AuthenticationError</span><span class="p">:</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Check your API key&quot;</span><span class="p">)</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Network issue — safe to retry&quot;</span><span class="p">)</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span></code></pre></div>
 
 
