@@ -1,8 +1,10 @@
 # xpresspay
 
-A Python SDK for integrating the [Xpress payment gateway](https://www.xpresspayonline.com) into your application.
+A Python SDK for integrating the [Xpress payment gateway](https://www.xpresspayments.com) into your application.
 
 Supports card payments (PIN, AVS/3DSecure), direct bank-account debits, payment verification, and banks listing. Built on [`httpx`](https://www.python-httpx.org/) with 3DES-24 encryption as required by the Xpresspay API.
+
+**[Full documentation](https://praisegee.github.io/xpresspay/)**
 
 ## Requirements
 

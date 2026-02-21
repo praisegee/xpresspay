@@ -14,6 +14,23 @@
     pip install xpresspay
     ```
 
+## Obtaining your API keys
+
+Xpresspay issues two separate key pairs: one for **sandbox** (testing) and one for **live** (production). Get them from the merchant dashboard:
+
+1. **Create an account** — go to [xpresspayments.com](https://www.xpresspayments.com) and sign up for a merchant account. You will receive a confirmation email to verify your address.
+
+2. **Log in to the dashboard** — after email verification, sign in at the merchant portal.
+
+3. **Locate your API keys** — navigate to **Settings → API Keys** (or **Developer → API Keys**, depending on the dashboard version). You will see:
+    - **Public key** — prefixed `XPPUBK-…`. Safe to use on the server side in API requests.
+    - **Secret key** — prefixed `XPSECK-…`. Used locally to encrypt payloads. **Never expose this in client-side code, logs, or version control.**
+
+4. **Sandbox vs live** — the dashboard provides a separate set of keys for each environment. Use your **sandbox keys** while `sandbox=True` and your **live keys** when you switch to `sandbox=False`.
+
+!!! note "Account approval"
+    Xpresspay may require business verification before your live keys are activated. Sandbox keys are typically available immediately after signup, so you can start integrating right away.
+
 ## Environment variables
 
 Never hardcode your keys. Export them from your shell or load them via a `.env` file:
@@ -22,8 +39,6 @@ Never hardcode your keys. Export them from your shell or load them via a `.env` 
 export XPRESSPAY_PUBLIC_KEY="XPPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X"
 export XPRESSPAY_SECRET_KEY="XPSECK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X"
 ```
-
-You can find both keys on your [Xpresspay dashboard](https://www.xpresspayonline.com).
 
 ## Create a client
 

@@ -1,6 +1,6 @@
 # xpresspay
 
-**Python SDK for the [Xpress payment gateway](https://www.xpresspayonline.com)**
+**Python SDK for the [Xpress payment gateway](https://www.xpresspayments.com)**
 
 ---
 
