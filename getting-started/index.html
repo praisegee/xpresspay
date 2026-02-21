@@ -485,6 +485,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#obtaining-your-api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtaining your API keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -693,6 +704,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#obtaining-your-api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtaining your API keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -781,12 +803,35 @@
 </div>
 </div>
 </div>
+<h2 id="obtaining-your-api-keys">Obtaining your API keys<a class="headerlink" href="#obtaining-your-api-keys" title="Permanent link">&para;</a></h2>
+<p>Xpresspay issues two separate key pairs: one for <strong>sandbox</strong> (testing) and one for <strong>live</strong> (production). Get them from the merchant dashboard:</p>
+<ol>
+<li>
+<p><strong>Create an account</strong> — go to <a href="https://www.xpresspayments.com">xpresspayments.com</a> and sign up for a merchant account. You will receive a confirmation email to verify your address.</p>
+</li>
+<li>
+<p><strong>Log in to the dashboard</strong> — after email verification, sign in at the merchant portal.</p>
+</li>
+<li>
+<p><strong>Locate your API keys</strong> — navigate to <strong>Settings → API Keys</strong> (or <strong>Developer → API Keys</strong>, depending on the dashboard version). You will see:</p>
+<ul>
+<li><strong>Public key</strong> — prefixed <code>XPPUBK-…</code>. Safe to use on the server side in API requests.</li>
+<li><strong>Secret key</strong> — prefixed <code>XPSECK-…</code>. Used locally to encrypt payloads. <strong>Never expose this in client-side code, logs, or version control.</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Sandbox vs live</strong> — the dashboard provides a separate set of keys for each environment. Use your <strong>sandbox keys</strong> while <code>sandbox=True</code> and your <strong>live keys</strong> when you switch to <code>sandbox=False</code>.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Account approval</p>
+<p>Xpresspay may require business verification before your live keys are activated. Sandbox keys are typically available immediately after signup, so you can start integrating right away.</p>
+</div>
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
 <p>Never hardcode your keys. Export them from your shell or load them via a <code>.env</code> file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XPRESSPAY_PUBLIC_KEY</span><span class="o">=</span><span class="s2">&quot;XPPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X&quot;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XPRESSPAY_SECRET_KEY</span><span class="o">=</span><span class="s2">&quot;XPSECK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X&quot;</span>
 </span></code></pre></div>
-<p>You can find both keys on your <a href="https://www.xpresspayonline.com">Xpresspay dashboard</a>.</p>
 <h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">XpressPay</span>
