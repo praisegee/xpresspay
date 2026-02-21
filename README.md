@@ -207,7 +207,7 @@ except XpressPayError:
 ## Development
 
 ```bash
-git clone https://github.com/praisegod/xpresspay
+git clone https://github.com/praisegee/xpresspay
 cd xpresspay
 uv sync --group dev
 uv run pytest
