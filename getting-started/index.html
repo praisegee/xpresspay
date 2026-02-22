@@ -763,13 +763,18 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">XPRESSPAY_PUBLIC_KEY</span><span class="o">=</span><span class="s2">&quot;XPPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X&quot;</span>
 </span></code></pre></div>
 <h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">XpressPay</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">XpressPay</span><span class="p">(</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">public_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XPRESSPAY_PUBLIC_KEY&quot;</span><span class="p">],</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># set False for live/production</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">)</span>
+<p>If <code>XPRESSPAY_PUBLIC_KEY</code> is set in your environment, you can create a client with no arguments:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">XpressPay</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">XpressPay</span><span class="p">(</span><span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># reads XPRESSPAY_PUBLIC_KEY automatically</span>
+</span></code></pre></div>
+<p>Or pass the key explicitly:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">xpresspay</span><span class="w"> </span><span class="kn">import</span> <span class="n">XpressPay</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">XpressPay</span><span class="p">(</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">public_key</span><span class="o">=</span><span class="s2">&quot;XPPUBK-...&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">sandbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># set False for live/production</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -783,9 +788,9 @@
 <tbody>
 <tr>
 <td><code>public_key</code></td>
-<td><code>str</code></td>
-<td>required</td>
-<td>Must start with <code>XPPUBK-</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Must start with <code>XPPUBK-</code>. Falls back to <code>XPRESSPAY_PUBLIC_KEY</code> env var.</td>
 </tr>
 <tr>
 <td><code>sandbox</code></td>
@@ -804,8 +809,8 @@
 <div class="admonition tip">
 <p class="admonition-title">Use as a context manager</p>
 <p>The client implements <code>__enter__</code> / <code>__exit__</code> so you can use it in a <code>with</code> block and HTTP connections are released automatically:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">with</span> <span class="n">XpressPay</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">with</span> <span class="n">XpressPay</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <h2 id="sandbox-vs-live">Sandbox vs live<a class="headerlink" href="#sandbox-vs-live" title="Permanent link">&para;</a></h2>
