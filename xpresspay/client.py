@@ -3,13 +3,13 @@ XpressPay client — the primary entry point for the SDK.
 
 Usage::
 
-    import os
     from xpresspay import XpressPay
 
-    client = XpressPay(
-        public_key=os.environ["XPRESSPAY_PUBLIC_KEY"],
-        sandbox=True,   # set False for production
-    )
+    # Reads XPRESSPAY_PUBLIC_KEY from the environment automatically
+    client = XpressPay(sandbox=True)
+
+    # Or pass the key explicitly
+    client = XpressPay(public_key="XPPUBK-...", sandbox=True)
 
     from xpresspay.models import InitializeRequest
 
@@ -28,6 +28,8 @@ Usage::
 
 from __future__ import annotations
 
+import os
+
 import httpx
 
 from ._http import HttpClient
@@ -43,7 +45,8 @@ class XpressPay:
 
     Args:
         public_key: Your Xpresspay public key (``XPPUBK-...``).
-            Used as the Bearer token in every API request.
+            If omitted, the value of the ``XPRESSPAY_PUBLIC_KEY`` environment
+            variable is used.
         sandbox: When ``True`` (default) requests are sent to the sandbox
             environment. Set to ``False`` for live/production.
         timeout: Request timeout in seconds (default: 30).
@@ -54,23 +57,26 @@ class XpressPay:
 
     def __init__(
         self,
-        public_key: str,
+        public_key: str | None = None,
         *,
         sandbox: bool = True,
         timeout: float = 30.0,
     ) -> None:
-        if not public_key or not public_key.startswith("XPPUBK-"):
+        resolved_key = public_key or os.environ.get("XPRESSPAY_PUBLIC_KEY", "")
+
+        if not resolved_key or not resolved_key.startswith("XPPUBK-"):
             raise ValueError(
-                "public_key must be a valid Xpresspay public key "
-                "starting with 'XPPUBK-'."
+                "A valid Xpresspay public key starting with 'XPPUBK-' is required. "
+                "Pass it as public_key or set the XPRESSPAY_PUBLIC_KEY "
+                "environment variable."
             )
 
-        self._public_key = public_key
+        self._public_key = resolved_key
         self._sandbox = sandbox
         self._base_url = _SANDBOX_BASE_URL if sandbox else _LIVE_BASE_URL
 
         self._http = HttpClient(
-            public_key=public_key,
+            public_key=self._public_key,
             timeout=httpx.Timeout(timeout, connect=10.0),
         )
 

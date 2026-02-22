@@ -40,19 +40,28 @@ export XPRESSPAY_PUBLIC_KEY="XPPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X"
 
 ## Create a client
 
+If `XPRESSPAY_PUBLIC_KEY` is set in your environment, you can create a client with no arguments:
+
 ```python
-import os
+from xpresspay import XpressPay
+
+client = XpressPay(sandbox=True)   # reads XPRESSPAY_PUBLIC_KEY automatically
+```
+
+Or pass the key explicitly:
+
+```python
 from xpresspay import XpressPay
 
 client = XpressPay(
-    public_key=os.environ["XPRESSPAY_PUBLIC_KEY"],
+    public_key="XPPUBK-...",
     sandbox=True,   # set False for live/production
 )
 ```
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `public_key` | `str` | required | Must start with `XPPUBK-` |
+| `public_key` | `str \| None` | `None` | Must start with `XPPUBK-`. Falls back to `XPRESSPAY_PUBLIC_KEY` env var. |
 | `sandbox` | `bool` | `True` | `True` → sandbox, `False` → live |
 | `timeout` | `float` | `30.0` | Request timeout in seconds |
 

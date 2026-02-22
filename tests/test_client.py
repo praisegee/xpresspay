@@ -26,12 +26,31 @@ class TestClientInit:
         client.close()
 
     def test_invalid_public_key_raises(self) -> None:
-        with pytest.raises(ValueError, match="public_key"):
+        with pytest.raises(ValueError, match="XPPUBK-"):
             XpressPay("invalid-key")
 
     def test_empty_public_key_raises(self) -> None:
         with pytest.raises(ValueError):
             XpressPay("")
+
+    def test_no_key_raises_without_env(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.delenv("XPRESSPAY_PUBLIC_KEY", raising=False)
+        with pytest.raises(ValueError):
+            XpressPay()
+
+    def test_reads_key_from_environment(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("XPRESSPAY_PUBLIC_KEY", VALID_PUBLIC_KEY)
+        client = XpressPay()
+        assert client.public_key == VALID_PUBLIC_KEY
+        client.close()
+
+    def test_explicit_key_takes_precedence_over_env(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        monkeypatch.setenv("XPRESSPAY_PUBLIC_KEY", "XPPUBK-env-key-X")
+        client = XpressPay(VALID_PUBLIC_KEY)
+        assert client.public_key == VALID_PUBLIC_KEY
+        client.close()
 
     def test_context_manager(self) -> None:
         with XpressPay(VALID_PUBLIC_KEY) as client:
