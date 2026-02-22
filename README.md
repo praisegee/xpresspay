@@ -27,13 +27,13 @@ pip install xpresspay
 ## Quick start
 
 ```python
-import os
 from xpresspay import XpressPay
 
-client = XpressPay(
-    public_key=os.environ["XPRESSPAY_PUBLIC_KEY"],
-    sandbox=True,   # False for production
-)
+# Reads XPRESSPAY_PUBLIC_KEY from the environment automatically
+client = XpressPay(sandbox=True)  # False for production
+
+# Or pass the key explicitly
+client = XpressPay(public_key="XPPUBK-...", sandbox=True)
 ```
 
 ## Initialize a payment
@@ -120,7 +120,7 @@ uv run ruff check xpresspay/ tests/
 
 | Variable | Description |
 |---|---|
-| `XPRESSPAY_PUBLIC_KEY` | Public key (`XPPUBK-…`) |
+| `XPRESSPAY_PUBLIC_KEY` | Public key (`XPPUBK-…`) — picked up automatically if `public_key` is not passed to the client |
 
 ## License
 
