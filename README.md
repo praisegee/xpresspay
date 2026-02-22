@@ -124,4 +124,4 @@ uv run ruff check xpresspay/ tests/
 
 ## License
 
-MIT
+Released under the [MIT License](LICENSE).

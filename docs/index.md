@@ -71,3 +71,7 @@ Installed automatically with the package.
 
 !!! warning "Never commit your keys"
     Store credentials in environment variables or a secrets manager. Never hardcode them in source code.
+
+## License
+
+Released under the [MIT License](https://github.com/praisegee/xpresspay/blob/main/LICENSE).
