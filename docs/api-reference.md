@@ -126,5 +126,5 @@ See the full [Exceptions](exceptions.md) page for details on each class.
 ```python
 import xpresspay
 
-print(xpresspay.__version__)  # "0.2.0"
+print(xpresspay.__version__)  # "0.2.1"
 ```
