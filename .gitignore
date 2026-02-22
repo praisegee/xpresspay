@@ -12,6 +12,9 @@ wheels/
 # Environment variables
 .env
 
+# Temporary files
+tmp.md
+
 # MkDocs build output
 site/
 
