@@ -19,13 +19,10 @@ Initialize (server-side)
 ## Initialize a transaction
 
 ```python
-import os
 from xpresspay import XpressPay, InitializeRequest
 
-client = XpressPay(
-    public_key=os.environ["XPRESSPAY_PUBLIC_KEY"],
-    sandbox=True,
-)
+# Reads XPRESSPAY_PUBLIC_KEY from the environment automatically
+client = XpressPay(sandbox=True)
 
 response = client.payments.initialize(
     InitializeRequest(
@@ -120,7 +117,6 @@ else:
 ## Complete example
 
 ```python
-import os
 from xpresspay import (
     XpressPay,
     InitializeRequest,
@@ -130,10 +126,8 @@ from xpresspay import (
     NetworkError,
 )
 
-client = XpressPay(
-    public_key=os.environ["XPRESSPAY_PUBLIC_KEY"],
-    sandbox=True,
-)
+# Reads XPRESSPAY_PUBLIC_KEY from the environment automatically
+client = XpressPay(sandbox=True)
 
 try:
     # 1 — Initialize

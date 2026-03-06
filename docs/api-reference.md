@@ -10,14 +10,14 @@ from xpresspay import XpressPay
 
 ```python
 XpressPay(
-    public_key: str,
+    public_key: str | None = None,
     *,
     sandbox: bool = True,
     timeout: float = 30.0,
 )
 ```
 
-Raises `ValueError` if `public_key` does not start with `XPPUBK-`.
+If `public_key` is not provided, it is read from the `XPRESSPAY_PUBLIC_KEY` environment variable. Raises `ValueError` if `public_key` does not start with `XPPUBK-`.
 
 ### Properties
 
